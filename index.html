@@ -145,13 +145,59 @@
       max-width: 100%; 
       height: auto;
     }
+
+     .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
     
   </style>
+
+  <script>
+  function toggleMenu() {
+    const nav = document.getElementById("nav");
+    nav.classList.toggle("active");
+  }
+  </script>
+  
 </head>
 <body>
   <header>
     <h1>Design Global</h1>
-    <nav>
+     <div class="menu-toggle" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav">
       <a href="#objetives">Nuestro Objetivo</a>
       <a href="#services">Servicios</a>
       <a href="#contact">Contacto</a>
